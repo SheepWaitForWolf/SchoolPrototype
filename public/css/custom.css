@@ -1,0 +1,7 @@
+.dropdown li:hover {
+	display: block !important; 
+}
+
+#regform {
+	display: inline-block !important;
+}
