@@ -29,41 +29,57 @@ Register
 
 <script type="text/javascript">
 
- $("#regform").alpaca({
-                    "schema": {
-                        "title":"User Feedback",
-                        "description":"What do you think of our service?",
-                        "type":"object",
-                        "properties": {
-                            "name": {
-                                "type":"string",
-                                "title":"Name",
-                                "required":true
-                            },
-                            "feedback": {
-                                "type":"string",
-                                "title":"Feedback"
-                            },
-                            "ranking": {
-                                "type":"string",
-                                "title":"Ranking",
-                                "enum":['Excellent','Good','Average', 'Poor'],
-                                "required":true
-                            }
-                        }
+$('#regform').alpaca({
+    "schema": {
+        "type": "object",
+        "required": false,
+        "properties": {
+            "new1473775962508": {
+                "readonly": false,
+                "required": true,
+                "type": "string",
+                "disallow": [],
+                "enum": [],
+                "maxLength": 50,
+                "properties": {}
+            },
+            "new1473775904717": {
+                "readonly": false,
+                "required": true,
+                "type": "string",
+                "disallow": [],
+                "enum": [],
+                "properties": {}
+            },
+            "new1473776219812": {
+                "type": "string",
+                "required": true,
+                "properties": {}
+            },
+            "new1473776197643": {
+                "type": "string",
+                "required": true,
+                "properties": {}
+            },
+            "check": {
+                "type": "boolean",
+                "required": false,
+                "default": true,
+                "properties": {}
+            }
+        }
+    },
+    "options": {
+         "form":{
+            "attributes":{
+                        "action":"register/",
+                        "method":"post"
                     },
-                    "options": {
-                        "form":{
-                            "attributes":{
-                                "action":"/register",
-                                "method":"post"
-                            },
-                            "buttons":{
-                                "submit":{
-                                    "title": "Send Form Data",
-                                    "click": function() {
-                                        var val = this.getValue();
-                                        if (this.isValid(true)) {
+                    "buttons":{
+                        "submit":{
+                              "click": function() {
+                                     var val = this.getValue();
+                                     if (this.isValid(true)) {
                                             alert("Valid value: " + JSON.stringify(val, null, "  "));
                                             this.ajaxSubmit().done(function() {
                                                 alert("Posted!");
@@ -71,38 +87,134 @@ Register
                                         } else {
                                             alert("Invalid value: " + JSON.stringify(val, null, "  "));
                                         }
-                                    }
-                                }
-                            }
-                        },
-                        "helper": "Tell us what you think about Alpaca!",
-                        "fields": {
-                            "name": {
-                                "size": 20,
-                                "helper": "Please enter your name."
-                            },
-                            "feedback" : {
-                                "type": "textarea",
-                                "name": "your_feedback",
-                                "rows": 5,
-                                "cols": 40,
-                                "helper": "Please enter your feedback."
-                            },
-                            "ranking": {
-                                "type": "select",
-                                "helper": "Select your ranking.",
-                                "optionLabels": ["Awesome!",
-                                    "It's Ok",
-                                    "Hmm..."]
-                            }
+                             } 
                         }
-                    },
-                    "postRender": function(control) {
-                        control.childrenByPropertyId["name"].getFieldEl().css("background-color", "lightgreen");
                     }
-                });
-            });
-        </script>
+        },
+        "focus": true,
+        "type": "object",
+        "helpers": [],
+        "validate": true,
+        "disabled": false,
+        "showMessages": true,
+        "collapsible": false,
+        "legendStyle": "button",
+        "fields": {
+            "new1473775962508": {
+                "type": "text",
+                "size": 100,
+                "validate": false,
+                "showMessages": true,
+                "disabled": false,
+                "hidden": false,
+                "label": "First Name",
+                "helpers": [
+                    "Enter your first name."
+                ],
+                "hideInitValidationError": false,
+                "focus": true,
+                "optionLabels": [],
+                "typeahead": {},
+                "allowOptionalEmpty": true,
+                "data": {},
+                "autocomplete": false,
+                "disallowEmptySpaces": false,
+                "disallowOnlyEmptySpaces": false,
+                "readonly": false,
+                "renderButtons": true,
+                "attributes": {},
+                "fields": {}
+            },
+            "new1473775904717": {
+                "type": "text",
+                "size": 100,
+                "validate": false,
+                "showMessages": true,
+                "disabled": false,
+                "hidden": false,
+                "label": "Last Name",
+                "helpers": [
+                    "Enter your last name."
+                ],
+                "hideInitValidationError": false,
+                "focus": true,
+                "optionLabels": [],
+                "typeahead": {},
+                "allowOptionalEmpty": true,
+                "data": {},
+                "autocomplete": false,
+                "disallowEmptySpaces": false,
+                "disallowOnlyEmptySpaces": false,
+                "readonly": false,
+                "renderButtons": true,
+                "attributes": {},
+                "fields": {}
+            },
+            "new1473776219812": {
+                "type": "text",
+                "size": 100,
+                "validate": false,
+                "showMessages": true,
+                "disabled": false,
+                "hidden": false,
+                "label": "Gender",
+                "helpers": [],
+                "hideInitValidationError": false,
+                "focus": true,
+                "optionLabels": [],
+                "typeahead": {},
+                "allowOptionalEmpty": true,
+                "data": {},
+                "autocomplete": false,
+                "disallowEmptySpaces": false,
+                "disallowOnlyEmptySpaces": false,
+                "renderButtons": true,
+                "attributes": {},
+                "fields": {}
+            },
+            "new1473776197643": {
+                "type": "date",
+                "size": 100,
+                "validate": false,
+                "showMessages": true,
+                "disabled": false,
+                "hidden": false,
+                "label": "Date of Birth",
+                "helpers": [],
+                "hideInitValidationError": false,
+                "focus": true,
+                "optionLabels": [],
+                "typeahead": {},
+                "allowOptionalEmpty": true,
+                "data": {},
+                "autocomplete": false,
+                "disallowEmptySpaces": false,
+                "disallowOnlyEmptySpaces": false,
+                "renderButtons": true,
+                "attributes": {},
+                "fields": {}
+            },
+            "check": {
+                "type": "checkbox",
+                "rightLabel": "Sign me up for the News Letter!",
+                "label": "Newsletter",
+                "helpers": [],
+                "validate": true,
+                "disabled": false,
+                "showMessages": true,
+                "renderButtons": true,
+                "fields": {}
+            }
+        }
+    },
+    "data": {
+        "check": true
+    }
+  });
+
+
+</script>
+
 
 </div>
 </div>

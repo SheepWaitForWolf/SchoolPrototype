@@ -17,7 +17,7 @@ Report Feedback
 	</div>
 </div>
 <br>
-<form method = "POST" action = "('route' => 'post.services.postRegisterPage')" class="form-horizontal">
+<form method = "POST" action =" {{'route' => 'post.services.postRegisterPage'}} "class="form-horizontal">
   <fieldset>
     <div class="form-group">
       <label for="inputFirstName" class="col-lg-2 control-label">First Name</label>
