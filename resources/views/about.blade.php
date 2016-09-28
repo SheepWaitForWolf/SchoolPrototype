@@ -4,10 +4,11 @@
 About
 @stop
 
+
 <br>
 <br>
-<br>
-<div class="col-md-8">
+<div class="container">
+  <div class="col-md-8">
     <p> <strong>Welcome to myaccount School Portal</strong> <br>
     <br>
      Register an account to simplify and secure the process of updating your childs school records. 
@@ -25,5 +26,6 @@ Provided by the Improvement Service and funded by the Scottish Government, it is
   launched in April 2014 and is regularly being updated as and when new service providers (from eligible Scottish public sector
    organisations) choose to deliver online services. myaccount is designed to work nationwide - giving public sector 
    organisations across Scotland a shared, secure method of verifying who you are online.</p>
+</div>
 </div>
 

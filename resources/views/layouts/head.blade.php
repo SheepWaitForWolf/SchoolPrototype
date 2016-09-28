@@ -13,6 +13,13 @@
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
         <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="./js/ajax-crud.js"></script>
+        <script type="text/javascript" src="./js/feedback-crud.js"></script>
+        <script type="text/javascript" src="./js/absence-crud.js"></script>
+
+
+
+
 
         <title> @yield('title')</title>
         <!-- Fonts -->
@@ -24,3 +31,4 @@
         <!-- alpaca -->
         <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.18/bootstrap/alpaca.min.css" rel="stylesheet" />
         <script type="text/javascript" src="//code.cloudcms.com/alpaca/1.5.18/bootstrap/alpaca.min.js"></script>
+

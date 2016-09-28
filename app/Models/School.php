@@ -23,9 +23,10 @@ class School extends Model
         'lat_val',
         'long_val',
         'telephone',
+        'local_authority_id',
         'email_address',
         'website',
-        'religion',
+        'non_denom',
         'opening_hours',
         'head_teacher',
         'local_authority_id'

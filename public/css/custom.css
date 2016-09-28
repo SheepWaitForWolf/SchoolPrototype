@@ -5,3 +5,30 @@
 #regform {
 	display: inline-block !important;
 }
+
+img {
+	border: 3em !important;
+	margin-top: -20px !important;
+}
+
+.navbar-default {
+	margin: auto !important;
+	display: inline-block !important;
+	height: 70px !important;
+}
+
+#navbar-main {
+	height: 70px !important;
+}
+
+#navlist {
+	min-height: 70px;
+}
+
+body {
+	padding-top: 70px !important;
+}
+
+#droplist {
+	height: 27px;
+}
