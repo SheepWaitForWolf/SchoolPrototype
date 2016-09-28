@@ -1,7 +1,8 @@
 <footer class="row">
 	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
+		<div class="col-md-4">
+		</div>
+			<div class="col-md-8">
 				<p>IS | 2016 All rights reserved</p>
 			</div>
 		</div>		

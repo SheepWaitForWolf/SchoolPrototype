@@ -22,14 +22,4 @@ class Feedback extends Model
     ];
 
     protected $guarded = [];
-
-    public function postFeedback(Request $request) {
-        $feedback = new Feedback;
-        $feedback->f_name = $request->f_name;
-        $feedback->l_name = $request->l_name;
-        $feedback->service = $request->service;
-        $feedback->rating = $request->rating;
-        $feedback->message = $request->message;
-
-    }
 }

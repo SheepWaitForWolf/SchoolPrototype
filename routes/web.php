@@ -29,11 +29,15 @@ Route::get('/help', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('/register', ['uses'=>'ServicesController@getRegisterPage','as'=>'get.services.RegisterPage']);
+Route::get('/home', 'HomeController@index');
+
+Route::get('/registration/{child_id?}', ['uses'=>'ServicesController@getRegistrationPage','as'=>'get.services.getRegistrationPage']);
+
+Route::get('/absence/{absence_id?}', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
 Route::get('/enrol', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.showEnrolPage']);
 
-Route::get('/absence', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.showAbsencePage']);
+Route::get('/absence', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
 Route::get('/annualupdate', ['uses'=>'ServicesController@getAnnualUpdatePage','as'=>'get.services.showAnnualUpdatePage']);
 
@@ -41,20 +45,48 @@ Route::get('/results', ['uses'=>'ServicesController@getResultsPage','as'=>'get.s
 
 Route::get('/schoolmeals', ['uses'=>'ServicesController@getSchoolMealsPage','as'=>'get.services.showSchoolMealsPage']);
 
-Route::get('/feedback', ['uses'=>'ServicesController@getFeedbackPage','as'=>'get.services.showFeedbackPage']);
+Route::get('/getschools', ['uses'=>'ServicesController@getSchools', 'as'=>'get.services.getSchools']);
+
+
 
 /*
 |--------------------------------------------------------------------------
 | Services POST Routes
 |--------------------------------------------------------------------------
 */
-Route::post('/register/', ['uses'=>'ServicesController@postChildPage','as'=>'post.services.postRegisterPage']);
+Route::post('/registration/{child_id?}', ['uses'=>'ServicesController@postRegistrationPage','as'=>'post.services.postRegistrationPage']);
+
+Route::post('/absence/{absence_id?}', ['uses'=>'ServicesController@postAbsencePage','as'=>'post.services.postAbsencePage']);
 
 Route::post('/feedback', ['uses'=>'ServicesController@postFeedbackPage','as'=>'post.services.postFeedbackPage']);
 
-Route::delete('/register/child/{child_id?}', ['uses'=>'ServicesController@deleteChildPage','as'=>'delete.services.deleteChildPage']);
 
-Route::delete('/admin/council/{local_authority_id?}', ['uses'=>'AdminController@deleteCouncilPage','as'=>'delete.admin.deleteCouncilPage']);
-
+Route::get('/feedback/{feedback_id?}', ['uses'=>'ServicesController@getfeedbackPage','as'=>'get.services.getFeedbackPage']);
 
 
+Route::put('/feedback/{feedback_id?}', ['uses'=>'ServicesController@updateFeedbackPage','as'=>'put.services.updateFeedbackPage']);
+
+Route::put('/registration/{child_id?}', ['uses'=>'ServicesController@updateRegistrationPage','as'=>'put.services.updateRegistrationPage']);
+Auth::routes();
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Services DELETE Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::delete('registration/{child_id?}', ['uses'=>'ServicesController@deleteRegistrationPage','as'=>'delete.services.deleteRegistrationPage']);
+
+Route::delete('feedback/{feedback_id?}', ['uses'=>'ServicesController@deleteFeedbackPage','as'=>'delete.services.deleteFeedbackPage']);
+
+Route::delete('absence/{absence_id?}', ['uses'=>'ServicesController@deleteAbsencePage','as'=>'delete.services.deleteAbsencePage']);
+
+/*
+|--------------------------------------------------------------------------
+| SimpleSAML based Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/userhome',['uses'=>'SimpleSAMLPHPController@getUserData','as'=>'get.simplesamlphp.userdata']);
