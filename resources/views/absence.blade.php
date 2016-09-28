@@ -19,9 +19,10 @@ var request = $.ajax({
 
 
     request.done(function(msg) {
+      $('#fillable').empty();
       for (var i in msg) {
-      console.log(msg[i].school_name);    
-      }  
+      $('#fillable').append("<option>" + msg[i].school_name + "</option>");
+      }
     });
 
     request.fail(function(jqXHR, textStatus) {
@@ -64,10 +65,7 @@ var request = $.ajax({
        <div class="form-group">
       <label for="school" class="col-lg-2 control-label">School</label>
       <div class="col-lg-10">
-        <select class="form-control" name="school" id="school" >
-         @foreach($schools as $school)
-          <option value"" id="fillable">{{ $school->school_name }}</option>
-         @endforeach
+        <select class="form-control" name="school" id="fillable" >
         </select>
       </div>
     </div>
