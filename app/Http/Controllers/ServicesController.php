@@ -20,6 +20,7 @@ use DB;
 
 class ServicesController extends Controller
 {
+    
 
 	public function getRegistrationPage() {
         $children = ChildRecord::all();
@@ -32,14 +33,16 @@ class ServicesController extends Controller
     }
 
     public function getSchools(Request $request){
-
-         $authorities = LocalAuthority::all();
-         $absences = Absence::all();
-         $id = intval($id = $request->d);
-         $schools = DB::select('SELECT school_name FROM schools WHERE local_authority_id = :id', ['id' => $id]);
-         $response = Response::make($schools, "200");
-         $response->header('Content-Type', 'text/json');
-         return $response;
+        
+        $authorities = LocalAuthority::all();
+        $absences = Absence::all();
+        $id = intval($id = $request->d);
+        $la_name = LocalAuthority::find($id)->la_name;
+        $schools = DB::select('SELECT school_name FROM schools WHERE local_authority_id = :id', ['id' => $id]);
+        $response = Response::make($schools, "200");
+        $response->header('Content-Type', 'text/json');
+        return $response;
+        return $la_name;
     }
 
      public function getAbsencePage(Request $request) {
@@ -70,6 +73,7 @@ class ServicesController extends Controller
     }
 
       public function postFeedbackPage(Request $request) {
+
         $feedback = new Feedback;
         $feedback->f_name = $request->f_name;
         $feedback->l_name = $request->l_name;
@@ -96,11 +100,14 @@ class ServicesController extends Controller
    
     public function postAbsencePage(Request $request)
     {
+        $la_name = LocalAuthority::find($request->la)->la_name;
         $absencerecord = new Absence;
         $absencerecord->f_name = $request->f_name;
         $absencerecord->l_name = $request->l_name;
-        $absencerecord->la = $request->la;
+        $absencerecord->la = $la_name;
         $absencerecord->school = $request->school;
+        $absencerecord->school_id = $request->id;
+
         $absencerecord->doa = $request->doa;
         $absencerecord->reason_for_absence = $request->reason_for_absence;
         $absencerecord->save();
@@ -130,15 +137,12 @@ class ServicesController extends Controller
 
      public function updateRegistrationPage(Request $request)
     {
-        $id = 
-        $childrecord = ChildRecord::find($id);
+        $childrecord = ChildRecord::find($request->id);
         $childrecord->f_name = $request->f_name;
         $childrecord->l_name = $request->l_name;
         $childrecord->gender = $request->gender;
         $childrecord->dob = $request->dob;
-
         $childrecord->save();
-
 
         return $this->getRegistrationPage();
 
