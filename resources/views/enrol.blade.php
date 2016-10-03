@@ -140,7 +140,7 @@ var request = $.ajax({
 
 
 @section('Modal')
-    <div class="modal fade" id="myAbsenceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myEnrolModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -148,7 +148,7 @@ var request = $.ajax({
                             <h4 class="modal-title" id="myModalLabel">Amend Details</h4>
                         </div>
                         <div class="modal-body">
-                            <form id="frmabsences" name="frmabsences" class="form-horizontal" novalidate="">
+                            <form id="frmenrol" name="frmenrol" class="form-horizontal" novalidate="">
 
                                 <div class="form-group error">
                                     <label for="f_name" class="col-sm-3 control-label">First Name</label>
@@ -179,15 +179,15 @@ var request = $.ajax({
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="doa" class="col-sm-3 control-label">Date of Absence</label>
+                                    <label for="yearofstudy" class="col-sm-3 control-label">Year of Study</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="doa" name="doa" placeholder="Excellent" value="">
+                                        <input type="text" class="form-control" id="yearofstudy" name="yearofstudy" placeholder="Excellent" value="">
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="btn-save-absence" value="add">Save changes</button>
+                            <button type="button" class="btn btn-primary" id="btn-save-enrol" value="add">Save changes</button>
                             <input type="hidden" id="council_id" name="council_id" value="0">
                         </div>
                     </div>

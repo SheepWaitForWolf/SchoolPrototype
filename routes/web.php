@@ -64,6 +64,9 @@ Route::get('/getschools', ['uses'=>'ServicesController@getSchools', 'as'=>'get.s
 */
 Route::post('/registration/{child_id?}', ['uses'=>'ServicesController@postRegistrationPage','as'=>'post.services.postRegistrationPage']);
 
+Route::post('/enrol/{enrol_id?}', ['uses'=>'ServicesController@postEnrolmentPage','as'=>'post.services.postEnrolmentPage']);
+
+
 Route::post('/absence/{absence_id?}', ['uses'=>'ServicesController@postAbsencePage','as'=>'post.services.postAbsencePage']);
 
 Route::post('/feedback', ['uses'=>'ServicesController@postFeedbackPage','as'=>'post.services.postFeedbackPage']);
