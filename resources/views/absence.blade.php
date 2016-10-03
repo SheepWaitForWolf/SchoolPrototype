@@ -21,7 +21,7 @@ var request = $.ajax({
     request.done(function(msg) {
       $('#fillable').empty();
       for (var i in msg) {
-      $('#fillable').append("<option>" + msg[i].school_name + "</option>");
+      $('#fillable').append("<option value=" + msg[i].school_name + ">" + msg[i].school_name + "</option>");
       }
     });
 
@@ -56,6 +56,7 @@ var request = $.ajax({
       <label for="la" class="col-lg-2 control-label">Local Authority</label>
       <div class="col-lg-10">
         <select class="form-control" name="la" id="la" onchange="changela(this.value)">
+          <option value="Choose your Local Authority">Choose your Local Authority</option>
           @foreach($authorities as $authority)
           <option value="{{$authority->local_authority_id}}">{{ $authority->la_name }}</option>
           @endforeach
@@ -65,7 +66,8 @@ var request = $.ajax({
        <div class="form-group">
       <label for="school" class="col-lg-2 control-label">School</label>
       <div class="col-lg-10">
-        <select class="form-control" name="school" id="fillable" >
+        <select selected="true" class="form-control" name="school" id="fillable" >
+          <option value="Choose your School">Choose your School</option>
         </select>
       </div>
     </div>
