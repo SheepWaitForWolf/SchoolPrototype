@@ -14,13 +14,13 @@ $(document).ready(function(){
             $('#l_name').val(data.l_name);
             // $('#btn-save').val("update");
 
-            $('#myModal').modal('show');
+            $('#myEnrolModal').modal('show');
         }) 
     });
 
     //delete child and remove it from list
     $('.delete-enrolment').click(function(){
-        
+            var enrol_id = $(this).val();
     
     $.ajaxPrefilter(function(options, originalOptions, xhr) { // this will run before each request
         var token = $('meta[name="csrf-token"]').attr('content'); // or _token, whichever you are using
@@ -44,7 +44,7 @@ $(document).ready(function(){
         });
     });
 
-    //create new child / update existing child
+    //create new enrolment / update existing enrolment
     $("#btn-save-enrolment").click(function (e) {
         console.log($(this));
         var enrol_id = $(this).val();
@@ -60,8 +60,8 @@ $(document).ready(function(){
             enrol_id: $('#enrol_id').val(),
             f_name: $('#f_name').val(),
             l_name: $('#l_name').val(),
-            gender: $('#gender').val(),
-            dob: $('#dob').val()
+            la: $('#la').val(),
+            school: $('#school').val()
         }
 
         //used to determine the http verb to use [add=POST], [update=PUT]
@@ -94,9 +94,9 @@ $(document).ready(function(){
                     $("#enrol" + enrol_id).replaceWith( enrol );
                 }
 
-                $('#frmchilds').trigger("reset");
+                $('#frmenrol').trigger("reset");
 
-                $('#myModal').modal('hide')
+                $('#myEnrolModal').modal('hide')
             },
             error: function (data) {
                 console.log('Error:', data);

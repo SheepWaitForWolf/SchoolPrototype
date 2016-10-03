@@ -16,6 +16,7 @@
         <script type="text/javascript" src="./js/ajax-crud.js"></script>
         <script type="text/javascript" src="./js/feedback-crud.js"></script>
         <script type="text/javascript" src="./js/absence-crud.js"></script>
+        <script type="text/javascript" src="./js/enrolment-crud.js"></script>
 
 
 

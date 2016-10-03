@@ -72,16 +72,16 @@ var request = $.ajax({
       </div>
     </div>
     <div class="form-group">
-      <label for="yearofstudy" class="col-lg-2 control-label">Year of Study</label>
+      <label for="year_of_study" class="col-lg-2 control-label">Year of Study</label>
       <div class="col-lg-10">
-        <input type="text" class="form-control" name="yearofstudy" id="yearofstudy" placeholder="">
+        <input type="text" class="form-control" name="year_of_study" id="year_of_study" placeholder="">
       </div>
       </div>
 
     <div class="form-group">
       <label for="textArea" class="col-lg-2 control-label">Academic Year</label>
       <div class="col-lg-10">
-        <textarea class="form-control" name="academicyear" rows="3" cols="40" id="textArea" placeholder="2016/2017"></textarea>
+        <input type="text" class="form-control" name="academic_year" id="academic_year" placeholder="">
       </div>
     </div>
     <div class="form-group">
@@ -119,7 +119,7 @@ var request = $.ajax({
                 </thead>
                 <tbody id="enrolment-list" name="enrolment-list">
                     @foreach ($enrolments as $enrolment)               
-                    <tr id="{{$enrolment->enrol_id}}">
+                    <tr id="enrol{{$enrolment->enrol_id}}">
                         <td>{{$enrolment->enrol_id}}</td>                   
                         <td>{{$enrolment->f_name}}</td>
                         <td>{{$enrolment->l_name}}</td>
