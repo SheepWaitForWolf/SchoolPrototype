@@ -43,7 +43,7 @@ Route::get('/registration/{child_id?}', ['uses'=>'ServicesController@getRegistra
 
 Route::get('/absence/{absence_id?}', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
-Route::get('/enrol', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.showEnrolPage']);
+Route::get('/enrol/{enrol_id?}', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.Enrolment']);
 
 Route::get('/absence', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
