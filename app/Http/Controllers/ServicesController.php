@@ -31,11 +31,11 @@ class ServicesController extends Controller
 
      public function getEnrolmentPage() {
         $authorities = LocalAuthority::all();
-        $enrolment = Enrolment::all();
+        $enrolments = Enrolment::all();
         $absences = Absence::all();
         $schools = DB::select('SELECT school_name FROM schools WHERE local_authority_id = :id', ['id' => 1]);
         $response = $schools;
-    	return view('enrol')->with('enrolment', $enrolment)->with('authorities', $authorities)->with('absences', $absences)->with('schools', $schools)->with('response', $response);
+    	return view('enrol')->with('enrolments', $enrolments)->with('authorities', $authorities)->with('absences', $absences)->with('schools', $schools)->with('response', $response);
     }
 
     public function getSchools(Request $request){
@@ -153,9 +153,9 @@ class ServicesController extends Controller
 
         $enrolment->save();
 
-        return $this->getFeedbackPage();
+        return $this->getEnrolmentPage();
 
-        return redirect()->route('get.services.feedback');
+        return redirect()->route('get.services.enrolment');
     }
 
      public function updateRegistrationPage(Request $request)
@@ -185,6 +185,13 @@ class ServicesController extends Controller
 
        $absencerecord = Absence::find($id);
        $absencerecord->delete();
+       return;
+    }
+
+    public function deleteEnrolmentPage($id){
+
+       $enrolmentrecord = Enrolment::find($id);
+       $enrolmentrecord->delete();
        return;
     }
 }

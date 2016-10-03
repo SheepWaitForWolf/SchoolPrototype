@@ -118,14 +118,15 @@ var request = $.ajax({
                     </tr>
                 </thead>
                 <tbody id="enrolment-list" name="enrolment-list">
-                    @foreach ($enrolment as $enrol)               <tr id="enrolment{{$enrolment->enrol_id}}">
-                        <td>{{$enrol->enrol_id}}</td>                   
-                        <td>{{$enrol->f_name}}</td>
-                        <td>{{$enrol->l_name}}</td>
-                        <td>{{$enrol->la}}</td>
-                        <td>{{$enrol->school}}</td>
-                        <td>{{$enrol->year_of_study}}</td>
-                        <td>{{$enrol->academic_year}}</td>
+                    @foreach ($enrolments as $enrolment)               
+                    <tr id="{{$enrolment->enrol_id}}">
+                        <td>{{$enrolment->enrol_id}}</td>                   
+                        <td>{{$enrolment->f_name}}</td>
+                        <td>{{$enrolment->l_name}}</td>
+                        <td>{{$enrolment->la}}</td>
+                        <td>{{$enrolment->school}}</td>
+                        <td>{{$enrolment->year_of_study}}</td>
+                        <td>{{$enrolment->academic_year}}</td>
                         <td>
                             <button class="btn btn-warning btn-xs btn-detail open-modal-enrolment" value={{$enrolment->enrol_id}}>Edit</button>
                             <button class="btn btn-danger btn-xs btn-delete delete-enrolment" value={{$enrolment->enrol_id}}>Delete</button>

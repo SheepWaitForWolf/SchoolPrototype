@@ -43,7 +43,7 @@ Route::get('/registration/{child_id?}', ['uses'=>'ServicesController@getRegistra
 
 Route::get('/absence/{absence_id?}', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
-Route::get('/enrol/{enrol_id?}', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.Enrolment']);
+Route::get('/enrol/{enrol_id?}', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.getEnrolmentPage']);
 
 Route::get('/absence', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
@@ -93,6 +93,8 @@ Route::delete('registration/{child_id?}', ['uses'=>'ServicesController@deleteReg
 Route::delete('feedback/{feedback_id?}', ['uses'=>'ServicesController@deleteFeedbackPage','as'=>'delete.services.deleteFeedbackPage']);
 
 Route::delete('absence/{absence_id?}', ['uses'=>'ServicesController@deleteAbsencePage','as'=>'delete.services.deleteAbsencePage']);
+
+Route::delete('enrol/{enrol_id?}', ['uses'=>'ServicesController@deleteEnrolmentPage','as'=>'delete.services.deleteEnrolmentPage']);
 
 /*
 |--------------------------------------------------------------------------
