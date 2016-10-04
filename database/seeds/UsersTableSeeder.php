@@ -12,12 +12,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-        User::create(array(
-        'name'     => 'Chris Sevilleja',
-        'username' => 'sevilayha',
-        'email'    => 'chris@scotch.io',
-        'password' => Hash::make('awesome'),
-    ));
+        factory(App\Enrolment::class, 50)->create()->each(function($u) {
+        $u->posts()->save(factory(App\Post::class)->make());
+        });
     }
 }
