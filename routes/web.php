@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\AccountCreated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,7 +44,7 @@ Route::get('/registration/{child_id?}', ['uses'=>'ServicesController@getRegistra
 
 Route::get('/absence/{absence_id?}', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
-Route::get('/enrol', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.showEnrolPage']);
+Route::get('/enrol/{enrol_id?}', ['uses'=>'ServicesController@getEnrolmentPage','as'=>'get.services.getEnrolmentPage']);
 
 Route::get('/absence', ['uses'=>'ServicesController@getAbsencePage','as'=>'get.services.getAbsencePage']);
 
@@ -63,6 +64,9 @@ Route::get('/getschools', ['uses'=>'ServicesController@getSchools', 'as'=>'get.s
 |--------------------------------------------------------------------------
 */
 Route::post('/registration/{child_id?}', ['uses'=>'ServicesController@postRegistrationPage','as'=>'post.services.postRegistrationPage']);
+
+Route::post('/enrol/{enrol_id?}', ['uses'=>'ServicesController@postEnrolmentPage','as'=>'post.services.postEnrolmentPage']);
+
 
 Route::post('/absence/{absence_id?}', ['uses'=>'ServicesController@postAbsencePage','as'=>'post.services.postAbsencePage']);
 
@@ -91,6 +95,8 @@ Route::delete('feedback/{feedback_id?}', ['uses'=>'ServicesController@deleteFeed
 
 Route::delete('absence/{absence_id?}', ['uses'=>'ServicesController@deleteAbsencePage','as'=>'delete.services.deleteAbsencePage']);
 
+Route::delete('enrol/{enrol_id?}', ['uses'=>'ServicesController@deleteEnrolmentPage','as'=>'delete.services.deleteEnrolmentPage']);
+
 /*
 |--------------------------------------------------------------------------
 | SimpleSAML based Routes
@@ -98,3 +104,14 @@ Route::delete('absence/{absence_id?}', ['uses'=>'ServicesController@deleteAbsenc
 */
 
 Route::get('/userhome',['uses'=>'SimpleSAMLPHPController@getUserData','as'=>'get.simplesamlphp.userdata']);
+
+
+
+
+
+Route::get('/mail', function () {
+    // send an email to myself
+    Mail::to('dglennie89@gmail.com')->send(new AccountCreated);
+
+    return view('welcome');
+});

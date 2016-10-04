@@ -13,6 +13,7 @@ use App\Models\ChildRecord;
 use App\Models\Feedback;
 use App\Models\LocalAuthority;
 use App\Models\Absence;
+use App\Models\Enrolment;
 use App\Models\School;
 use App\Http\Requests;
 use Response;
@@ -29,7 +30,12 @@ class ServicesController extends Controller
     }
 
      public function getEnrolmentPage() {
-    	return view('enrol');
+        $authorities = LocalAuthority::all();
+        $enrolments = Enrolment::all();
+        $absences = Absence::all();
+        $schools = DB::select('SELECT school_name FROM schools WHERE local_authority_id = :id', ['id' => 1]);
+        $response = $schools;
+    	return view('enrol')->with('enrolments', $enrolments)->with('authorities', $authorities)->with('absences', $absences)->with('schools', $schools)->with('response', $response);
     }
 
     public function getSchools(Request $request){
@@ -135,6 +141,23 @@ class ServicesController extends Controller
         
     }
 
+    public function postEnrolmentPage(Request $request)
+    {
+        $enrolment = new Enrolment;
+        $enrolment->f_name = $request->f_name;
+        $enrolment->l_name = $request->l_name;
+        $enrolment->la = $request->la;
+        $enrolment->school = $request->school;
+        $enrolment->year_of_study = $request->year_of_study;
+        $enrolment->academic_year = $request->academic_year;
+
+        $enrolment->save();
+
+        return $this->getEnrolmentPage();
+
+        return redirect()->route('get.services.enrolment');
+    }
+
      public function updateRegistrationPage(Request $request)
     {
         $childrecord = ChildRecord::find($request->id);
@@ -162,6 +185,13 @@ class ServicesController extends Controller
 
        $absencerecord = Absence::find($id);
        $absencerecord->delete();
+       return;
+    }
+
+    public function deleteEnrolmentPage($id){
+
+       $enrolmentrecord = Enrolment::find($id);
+       $enrolmentrecord->delete();
        return;
     }
 }
