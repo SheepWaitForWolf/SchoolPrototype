@@ -22,11 +22,11 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Enrolment::class, function (Faker\Generator $faker) {
-    static $password;
-
+    
     return [
-        'f_name' => $faker->name,
-        'email' => $faker->safeEmail,
+        'f_name' => $faker->f_name,
+        'l_name' => $faker->l_name,
         'la' => $faker->la,
+        'school' => $faker->school
     ];
 });
