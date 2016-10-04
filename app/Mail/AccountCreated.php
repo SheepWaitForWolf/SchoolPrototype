@@ -18,10 +18,11 @@ class AccountCreated extends Mailable
      */
 
     public $account_created;
+    public $total = 30;
 
-    public function __construct(AccountCreated $account_created)
+    public function __construct()
     {
-       $this->account_created = $account_created;
+      //
     }
 
     /**
@@ -31,7 +32,6 @@ class AccountCreated extends Mailable
      */
     public function build()
     {
-        return $this->from('');
-                    ->view('emails.account.created');
+        return $this->view('email.account-created');
     }
 }

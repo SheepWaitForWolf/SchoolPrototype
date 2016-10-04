@@ -1,0 +1,1 @@
+<h1>Email Heading {{$total}} </h1>

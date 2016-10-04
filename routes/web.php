@@ -1,5 +1,6 @@
 <?php
 
+use App\Mail\AccountCreated;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -103,3 +104,14 @@ Route::delete('enrol/{enrol_id?}', ['uses'=>'ServicesController@deleteEnrolmentP
 */
 
 Route::get('/userhome',['uses'=>'SimpleSAMLPHPController@getUserData','as'=>'get.simplesamlphp.userdata']);
+
+
+
+
+
+Route::get('/mail', function () {
+    // send an email to myself
+    Mail::to('dglennie89@gmail.com')->send(new AccountCreated);
+
+    return view('welcome');
+});
