@@ -21,14 +21,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Enrolment::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Enrolment::class, function (Faker\Generator $faker) {
     
     return [
-        'f_name' => $faker->f_name,
-        'l_name' => $faker->l_name,
-        'la' => $faker->la,
-        'school' => $faker->school,
-        'year_of_study' => $faker->year_of_study,
-        'academic_year' => $faker->academic_year
+        'f_name' => $faker->firstName,
+        'l_name' => $faker->lastName,
+        'la' => $faker->company,
+        'school' => $faker->company,
+        'year_of_study' => $faker->numberBetween($min = 1, $max = 13),
+        'academic_year' => $faker->year($max = 'now')
     ];
 });
