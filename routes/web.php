@@ -43,7 +43,9 @@ Route::get('logout', array('uses' => 'HomeController@doLogout'));
 |--------------------------------------------------------------------------
 */
 
-Route::get('/home', 'HomeController@index');
+Route::get('/home', function () {
+	return view('home');
+});
 
 Route::get('/registration/{child_id?}', ['uses'=>'ServicesController@getRegistrationPage','as'=>'get.services.getRegistrationPage']);
 

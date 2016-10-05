@@ -17,6 +17,9 @@
         <script type="text/javascript" src="./js/feedback-crud.js"></script>
         <script type="text/javascript" src="./js/absence-crud.js"></script>
         <script type="text/javascript" src="./js/enrolment-crud.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.0.1/vue-resource.min.js"></script>
+        <script src="/js/app.js"></script>
 
 
 
