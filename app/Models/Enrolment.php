@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Enrolment extends Model
 {
+    use Searchable;
+    
     protected $table = 'enrolment';
 
     protected $primaryKey = 'enrol_id';
