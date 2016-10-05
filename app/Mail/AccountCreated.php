@@ -19,6 +19,7 @@ class AccountCreated extends Mailable
 
     public $account_created;
     public $total = 30;
+    public $user = "Dave";
 
     public function __construct()
     {

@@ -16,6 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/search', [
+    'as' => 'api.search',
+    'uses' => 'Api\SearchController@search'
+]);
+
 Route::get('/about', function () {
 	return view('about');
 });
