@@ -41,8 +41,8 @@
                       <button type="submit" class="btn btn-default">Submit</button>
                     </form>
           <ul class="nav navbar-nav navbar-right">
-            <li><a id="navlist" href="https://signin.mygovscot.org/home/?sp=register/CAS" target="_blank">Register</a></li>
-            <li><a id="navlist" href="https://myaccount.signin.mygovscot.org/CASServer/login?service=https%3A%2F%2Fmyaccount.signin.mygovscot.org%2Fidp%2FAuthn%2FRemoteUser&RelyingPartyId=https://signin.mygovscot.org/shibboleth&LACode=CAS" target="_blank">Login</a></li>
+            <li><a id="navlist" href="https://uat.signinportal.mycas.org.uk/home/?sp=register/CAS" target="_blank">Register</a></li>
+            <li><a id="navlist" href="https://uat.signin.mycas.org.uk/CASServer/login?service=https%3A%2F%2Fuat.signin.mycas.org.uk%2Fidp%2FAuthn%2FRemoteUser&RelyingPartyId=http://localhost:3456/simplesaml/module.php/saml/sp/metadata.php/default-sp&LACode=CAS" target="_blank">Login</a></li>
           </ul>
 
         </div>
